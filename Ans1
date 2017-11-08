@@ -1,0 +1,35 @@
+Answer 1:
+
+Suitable design pattern - Composite design pattern (Since we have a hierarchy of components)
+
+Pseudo Code:
+Step1: Create interface NetPrice and add method getNetPrice() 
+Step2: Create interface PowerConsumption and add method getPowerConsumption()
+Step3: Create class ComputerComponent and implement the above two interfaces.
+Step4: Create sub classes from Computer Component. (extension) So we can create objects of each computer component.
+(Now establish hierarchy)
+Step5: Create Class component having methods: AddComponent, removecomponent, componentcount)
+Step6: Extend Composite class from Component
+
+		Structure:
+		Component
+		/     \
+	     Leaf	Composite
+			/     |
+		       Leaf   ... and so on.
+Example of getNetPrice:
+	in case a component has sub components, eg: bus -> network adapter,
+	foreach (this.components in component)
+		sum+=component.getNetPrice();
+At leaf level,
+		return pricevalue;
+
+If we want the prices/power consumption of each individual component, we can use the visitor pattern. (Visitor class to accept each component individually)
+
+
+
+
+
+
+
+

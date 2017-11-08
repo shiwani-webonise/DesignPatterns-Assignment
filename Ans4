@@ -1,0 +1,22 @@
+Suitable Design pattern: Strategy Pattern
+
+Step1: We need to create a strategy interface with the method sort()
+Step2: We implement the different sorting methods (Bubble, Insertion,Selection,Merge etc.) using the strategy interface. We can pass the performance list to the sort function to determine which one os best.
+	class BubbleSort implements strategy{
+	}
+	Return
+Step3: We create a context class
+	eg: public class Context {
+		private Strategy strategy;
+		
+		public Context(Strategy strategy) {
+			return strategy.sort();
+	    	}
+	    }
+Here, the context of the strategy is to sort the elements based on performance.
+Step4:We can check the behavious through the context class(change the strategy without changing context class)
+	Context context = new Context(new BubbleSort(list));	
+
+
+
+

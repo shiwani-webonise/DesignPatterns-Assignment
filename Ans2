@@ -1,0 +1,53 @@
+Answer2:
+Design Pattern used: Abstract Factory Method
+
+Pseudo-Code:
+Step1: We will create an abstract factory named Factory and add build/create component methods.
+Step2: Extend Factory to CabinetFactory and ChassisFactory.
+Step3: Create interfaces for Cabinet and Chassis having create Cabinet/Chassis method.
+Step4: Implement Chassis interface in TowerChassis and DesktopChassis.
+Step5: Implement Cabinet interface in TowerCabinet and DesktopCabinet.
+Each class(TowerChassis, Tower cabinet etc.) will have their own defining attributes.
+
+				
+				Factory
+			      /         \
+		CabinetFactory           ChassisFactory
+	               | creates	        | creates
+		CabinetInterface         ChassisInterface
+		     /   \	                 /     \
+	TowerCabinet     DesktopCabinet  TowerChassis  DesktopChassis
+	
+
+In case we want to ensure that a computer configuration always consists of parts that fit together, we can create the following structure instead. 
+
+				
+				Factory
+			      /         \
+		  DeskopFactory         TowerFactory
+	               | creates	        | creates
+		DesktopInterface         TowerInterface
+		     /   \	                 /     \
+	DesktopCabinet     DesktopChassis  TowerChassis  TowerCabinet
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+We can use the builder pattern to build Tower PC and Desktop PC
+
+Step1: Create PC builder class containing methods: buildTowerPC and buildDesktopPC.
+Step2: Create PC class containing methods: addChassis, addCabinet
+Step3: Create chassis and cabinet interfaces.
+Step4: Implement Chassis interface in TowerChassis and DesktopChassis.
+Step5: Implement Cabinet interface in TowerCabinet and DesktopCabinet.
+Step6: Build your PC through BuilderPattern Demo:
+Example:
+	 public PC buildTowerPC { 
+		PC pc = new PC();
+		PC.addChassis(new TowerChassis());
+		PC.addCabinet(new TowerCabinet());
+		return pc;
+	}
+
+	 
+
+
